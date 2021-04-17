@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed", "NewsDataFeed\NewsDataFeed.csproj", "{720DF7C0-85FF-4D64-8BBB-32A5BCED3551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed", "NewsDataFeed\NewsDataFeed.csproj", "{720DF7C0-85FF-4D64-8BBB-32A5BCED3551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.Model", "NewsDataFeed.Model\NewsDataFeed.Model.csproj", "{1955048A-A677-4E36-8B65-B68FBB5590DF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed.Model", "NewsDataFeed.Model\NewsDataFeed.Model.csproj", "{1955048A-A677-4E36-8B65-B68FBB5590DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.API", "NewsDataFeed.API\NewsDataFeed.API.csproj", "{C45DD33F-3DD1-4915-9AF1-9A9163A7DB36}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.Processor", "NewsDataFeed.Processor\NewsDataFeed.Processor.csproj", "{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.Helpers", "NewsDataFeed.Helpers\NewsDataFeed.Helpers.csproj", "{0F4F48C3-06A7-4BEE-B497-67301954283F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +25,14 @@ Global
 		{1955048A-A677-4E36-8B65-B68FBB5590DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1955048A-A677-4E36-8B65-B68FBB5590DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1955048A-A677-4E36-8B65-B68FBB5590DF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C45DD33F-3DD1-4915-9AF1-9A9163A7DB36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C45DD33F-3DD1-4915-9AF1-9A9163A7DB36}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C45DD33F-3DD1-4915-9AF1-9A9163A7DB36}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C45DD33F-3DD1-4915-9AF1-9A9163A7DB36}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F4F48C3-06A7-4BEE-B497-67301954283F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F4F48C3-06A7-4BEE-B497-67301954283F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F4F48C3-06A7-4BEE-B497-67301954283F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F4F48C3-06A7-4BEE-B497-67301954283F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
