@@ -1,6 +1,6 @@
 using System;
 
-namespace NewsDataFeed.API
+namespace PowerDemandDataFeed.API
 {
     public class WeatherForecast
     {

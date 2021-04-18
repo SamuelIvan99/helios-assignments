@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace NewsDataFeed.API.Controllers
+namespace PowerDemandDataFeed.API.Controllers
 {
     [ApiController]
     [Route("[controller]")]
