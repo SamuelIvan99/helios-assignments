@@ -4,5 +4,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PowerDemandDataFeed.Model\PowerDemandDataFeed.Model.csproj" />
+    <ProjectReference Include="..\PowerDemandDataFeed.Processor\PowerDemandDataFeed.Processor.csproj" />
+  </ItemGroup>
+
 
 </Project>
