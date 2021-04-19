@@ -1,2 +1,2 @@
 # helios-assignments
-Helios Power Trading asignments
+Helios Power Trading assignments
