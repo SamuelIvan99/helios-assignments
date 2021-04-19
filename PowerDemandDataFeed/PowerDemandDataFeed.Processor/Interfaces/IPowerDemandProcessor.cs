@@ -7,7 +7,5 @@ namespace PowerDemandDataFeed.Processor.Interfaces
     public interface IPowerDemandProcessor
     {
         Task<IEnumerable<Item>> GetXMLPowerDemand();
-
-        Task<IEnumerable<Item>> GetCSSPowerDemand();
     }
 }

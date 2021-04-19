@@ -12,19 +12,24 @@ namespace PowerDemandDataFeed.Processor
         public async Task<IEnumerable<Item>> GetXMLPowerDemand()
         {
             var url = "https://www.bmreports.com/bmrs/?q=ajax/xml_download/FORDAYDEM/xml/&filename=DayAndDayAhead_N_20210418";
+            var items = new List<Item>();
+            using XmlReader reader = XmlReader.Create(url);
 
-            using var reader = XmlReader.Create(url);
-            XmlSerializer serializer = new XmlSerializer(typeof(Response));
-            var data = serializer.Deserialize(reader) as Response;
-            var items = new List<Item>(data.ResponseBody.ResponseList.Items);
+            XmlRootAttribute xRoot = new XmlRootAttribute();
+            xRoot.ElementName = "item";
+            xRoot.IsNullable = true;
+            XmlSerializer serializer = new XmlSerializer(typeof(Item), xRoot);
+
+            while (reader.Read())
+            {
+                if (reader.NodeType == XmlNodeType.Element && reader.Name == "item")
+                {
+                    var item = serializer.Deserialize(reader) as Item;
+                    items.Add(item);
+                }
+            }
 
             return items;
-        }
-
-        public async Task<IEnumerable<Item>> GetCSSPowerDemand()
-        {
-            //var url = "https://www.bmreports.com/bmrs/?q=ajax/csv_download/FORDAYDEM/csv/&filename=DayAndDayAhead_N_20210418";
-            throw new System.NotImplementedException();
         }
     }
 }

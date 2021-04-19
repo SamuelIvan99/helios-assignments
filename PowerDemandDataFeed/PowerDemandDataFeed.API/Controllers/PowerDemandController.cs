@@ -26,12 +26,5 @@ namespace PowerDemandDataFeed.API.Controllers
         {
             return await _powerDemandProcessor.GetXMLPowerDemand();
         }
-
-        // GET: api/<PowerDemandController>/GetCSS
-        [HttpGet("GetCSS")]
-        public async Task<IEnumerable<Item>> GetCSS()
-        {
-            return await _powerDemandProcessor.GetCSSPowerDemand();
-        }
     }
 }
