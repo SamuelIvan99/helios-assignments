@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed", "NewsDataFeed\NewsDataFeed.csproj", "{720DF7C0-85FF-4D64-8BBB-32A5BCED3551}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed.WebClient", "NewsDataFeed\NewsDataFeed.WebClient.csproj", "{720DF7C0-85FF-4D64-8BBB-32A5BCED3551}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed.Model", "NewsDataFeed.Model\NewsDataFeed.Model.csproj", "{1955048A-A677-4E36-8B65-B68FBB5590DF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.Processor", "NewsDataFeed.Processor\NewsDataFeed.Processor.csproj", "{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed.Processor", "NewsDataFeed.Processor\NewsDataFeed.Processor.csproj", "{F816C7CC-75A7-4DB8-AEA5-8B363C6F802B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsDataFeed.Helpers", "NewsDataFeed.Helpers\NewsDataFeed.Helpers.csproj", "{0F4F48C3-06A7-4BEE-B497-67301954283F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsDataFeed.Helpers", "NewsDataFeed.Helpers\NewsDataFeed.Helpers.csproj", "{0F4F48C3-06A7-4BEE-B497-67301954283F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
