@@ -5,16 +5,17 @@ using System.Linq;
 using System.Threading.Tasks;
 using TradeProcessing.DataAceess;
 using TradeProcessing.Helpers;
+using TradeProcessing.Model;
 using TradeProcessing.Processor.Interfaces;
 
 namespace TradeProcessing.Processor
 {
-    public class ComTraderCsvProcessor : IComTraderCsvProcessor
+    public class JAOCsvProcessor : IJAOCsvProcessor
     {
         readonly HeliosContext _context;
         readonly IEpexParser _parser;
 
-        public ComTraderCsvProcessor(HeliosContext context, IEpexParser epexParser)
+        public JAOCsvProcessor(HeliosContext context, IEpexParser epexParser)
         {
             _context = context;
             _parser = epexParser;
@@ -37,39 +38,31 @@ namespace TradeProcessing.Processor
                 tradeNo = Convert.ToInt32(row.TradeNo);
                 if (tradeNo > currentPos)
                 {
-                    // Quantity bestemmes af buy/sell: Hvis vi har købt skal quantity angives med positivt fortegn. 
-                    // Hvis vi har solgt skal quantity angives med negativt fortegn
-                    decimal quant = row.Quantity;
-                    decimal price = row.Price;
-                    int fact = row.BuySell.ToUpper() == "B" ? 1 : -1;
+                    Trade trade = _context.Trades.Find(row.TradeNo);
 
-                    Effect effect = Effect.FromMegawatts(quant * fact);
-                    Money money = new Money(price, new Currency(row.Currency));
-
-                    // Hent alias og heraf grid ud fra landekoden i CSV filen (aflæses i EIC feltet).
-                    TsoAlias alias = GetTsoAliases(row.EIC.Substring(3, 2), "TsoAlias");
-                    Grid grid = alias.Grid;
-
-                    // Vi henter tidszonen fra grid
-                    var timeZone = grid.TimeZoneInfo;
-
-                    //CSV timeperiod format : 20200123 15:00-20200123 15:30
-                    DateTimeOffset from = GetEpexDateTimeOffSet(row.Contract.Substring(0, 14), timeZone);
-                    DateTimeOffset to = GetEpexDateTimeOffSet(row.Contract.Substring(15, 14), timeZone);
-                    TimePeriod timePeriod = new TimePeriod(from, to);
-
-                    var sourceBook = _context.Books.Where(tso => (tso.ShortName == row.TSO || tso.ShortName == row.TSO + " INTRA")).FirstOrDefault() ?? throw new ArgumentException($"Could not get exchange book for TSO {row.TSO}");
-                    var targetBook = grid.DefaultTradeBook ?? throw new ArgumentException($"Could not get default trade book for grid {grid}");
-
-                    var traderId = _context.Traders.Where(trader => trader.ExternalTraderId == row.TraderId && trader.TradingPlatform == "EPEX").FirstOrDefault() ?? throw new ArgumentException($"Could not validate trader {row.TraderId}");
-
-                    var transaction = Model.Entities.Transaction.CreateTrade(grid, timePeriod, sourceBook, targetBook, effect, money, traderId.ExternalTraderId, row.Text);
-                    transaction.SetExternalReference(new ExternalReference("EPEX-" + row.TSO + "-" + row.OrderNo + "-" + row.TradeNo));
-
-                    var ex = await _context.Transactions.FindByExternalReferenceAsync(transaction.ExternalReference);
-                    if (ex == null)
+                    if (trade == null)
                     {
-                        await _context.Transactions.AddAsync(transaction);
+                        trade = new Trade
+                        {
+                            Act = row.Act,
+                            BG = row.BG,
+                            BuySell = row.BuySell,
+                            Contract = row.Contract,
+                            Currency = row.Currency,
+                            DateTime = row.DateTime,
+                            EIC = row.EIC,
+                            OrderNo = row.OrderNo,
+                            Price = row.Price,
+                            Product = row.Product,
+                            P_O = row.P_O,
+                            Quantity = row.Quantity,
+                            State = row.State,
+                            Text = row.Text,
+                            TradeNo = row.TradeNo,
+                            TraderId = row.TraderId,
+                            TSO = row.TSO
+                        };
+                        await _context.Trades.AddAsync(trade);
                     }
                 }
             }

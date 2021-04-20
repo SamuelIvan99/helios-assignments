@@ -2,7 +2,7 @@
 using System.Globalization;
 using static TradeProcessing.Processor.EpexParser;
 
-namespace TradeProcessing.Processor
+namespace TradeProcessing.Processor.Interfaces
 {
     public interface IEpexParser
     {

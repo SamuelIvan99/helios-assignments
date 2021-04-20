@@ -2,7 +2,7 @@
 using System;
 using System.IO;
 using System.Threading.Tasks;
-using TradeProcessing.Processor;
+using TradeProcessing.Processor.Interfaces;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -13,10 +13,12 @@ namespace TradeProcessing.API.Controllers
     public class ImportController : ControllerBase
     {
         readonly IComTraderCsvProcessor _comTraderCsvProcessor;
+        readonly IJAOCsvProcessor _jaoCsvProcessor;
 
-        public ImportController(IComTraderCsvProcessor comTraderCsvProcessor)
+        public ImportController(IComTraderCsvProcessor comTraderCsvProcessor, IJAOCsvProcessor jaoCsvProcessor)
         {
             _comTraderCsvProcessor = comTraderCsvProcessor;
+            _jaoCsvProcessor = jaoCsvProcessor;
         }
 
         [HttpGet]
@@ -42,6 +44,14 @@ namespace TradeProcessing.API.Controllers
             }
 
             await _comTraderCsvProcessor.ProcessCsv(form.Text, form.Attributes);
+
+            return Ok();
+        }
+
+        [HttpPost("jao")]
+        public async Task<IActionResult> ImportJAOTrade([FromBody] ImportTextForm form)
+        {
+            await _jaoCsvProcessor.ProcessCsv(form.Text, form.Attributes);
 
             return Ok();
         }

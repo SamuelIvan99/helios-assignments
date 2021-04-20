@@ -1,13 +1,10 @@
-﻿using System.Collections.Generic;
-using System.Globalization;
-using System.Threading.Tasks;
+﻿using System.Globalization;
 
-namespace TradeProcessing.Processor
+namespace TradeProcessing.Processor.Interfaces
 {
-    public interface IComTraderCsvProcessor
+    public interface IComTraderCsvProcessor : ICsvProcessor
     {
-        Task<Task> ProcessCsv(string csv, Dictionary<string, string> attr);
 
-        object GetValue(CultureInfo culture, string str)
+        object GetValue(CultureInfo culture, string str);
     }
 }
