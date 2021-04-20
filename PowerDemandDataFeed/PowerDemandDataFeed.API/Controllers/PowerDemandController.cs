@@ -4,9 +4,6 @@ using PowerDemandDataFeed.Model;
 using PowerDemandDataFeed.Processor.Interfaces;
 using System.Collections.Generic;
 using System.IO;
-using System.Threading.Tasks;
-
-// For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace PowerDemandDataFeed.API.Controllers
 {
@@ -24,16 +21,22 @@ namespace PowerDemandDataFeed.API.Controllers
         // GET: api/<PowerDemandController>/GetXML
         [HttpGet("GetXML")]
         [Produces("application/xml")]
-        public async Task<IEnumerable<Item>> GetXMLData()
+        public IEnumerable<Item> GetXMLData()
         {
-            return await _powerDemandProcessor.GetXMLPowerDemand();
+            return _powerDemandProcessor.GetXMLPowerDemand();
         }
 
-        [HttpGet]
-        public async Task<IActionResult> DisplayInExcel()
+        /// <summary>
+        /// Gets the XML data from site and displays them in Excel file.
+        /// </summary>
+        /// <returns>Excel file</returns>
+        [HttpGet("excel")]
+        public IActionResult DisplayInExcel()
         {
-            var data = await _powerDemandProcessor.GetXMLPowerDemand();
+            // get XML data from the site
+            var data = _powerDemandProcessor.GetXMLPowerDemand();
 
+            // create excel workbook
             using (var workbook = new XLWorkbook())
             {
                 var worksheet = workbook.Worksheets.Add("Demand");
@@ -61,7 +64,7 @@ namespace PowerDemandDataFeed.API.Controllers
                     worksheet.Cell(currentRow, 7).Value = item.ActiveFlag;
                 }
 
-                // open Excel workbook
+                // save and download Excel workbook
                 using (var stream = new MemoryStream())
                 {
                     workbook.SaveAs(stream);
