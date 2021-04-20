@@ -2,7 +2,7 @@
 
 namespace PowerDemandDataFeed.Model
 {
-    [XmlRoot("item")]
+    [XmlRoot("item", IsNullable = true)]
     public class Item
     {
         [XmlElement(ElementName = "nationalBoundaryIdentifier")]
