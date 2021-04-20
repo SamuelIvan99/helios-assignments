@@ -42,7 +42,7 @@ namespace TradeProcessing.Helpers
             existing.SetLongValue(value);
         }
 
-        public async Task setStringValue(string value)
+        public async Task SetStringValue(string value)
         {
             var existing = await _context.Settings.FindAsync(_positionsKey);
 
