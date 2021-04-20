@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using TradeProcessing.DataAceess;
 using TradeProcessing.Processor;
+using TradeProcessing.Processor.Interfaces;
 
 namespace TradeProcessing.API
 {
@@ -20,7 +23,11 @@ namespace TradeProcessing.API
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddScoped<IComTraderCsvProcessor, ComTraderCsvProcessor>();
+            services.AddScoped<IJAOCsvProcessor, JAOCsvProcessor>();
             services.AddControllers();
+
+            services.AddDbContext<HeliosContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("TradeContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
