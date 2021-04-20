@@ -1,6 +1,8 @@
-﻿namespace TradeProcessing.DataAceess
+﻿using Microsoft.EntityFrameworkCore;
+
+namespace TradeProcessing.DataAceess
 {
-    public class HeliosContext
+    public class HeliosContext : DbContext
     {
     }
 }
