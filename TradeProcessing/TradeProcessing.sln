@@ -5,13 +5,13 @@ VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.API", "TradeProcessing.API\TradeProcessing.API.csproj", "{0F7B990C-FD8D-41C5-A897-8E41D18E3B81}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.Model", "TradeProcessing.Model\TradeProcessing.Model.csproj", "{E5B15BE1-D4C8-465B-AF1C-309096D3C763}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.DataAceess", "TradeProcessing.DataAceess\TradeProcessing.DataAceess.csproj", "{0DAF01E5-D1A7-44D3-853E-4722BA51C4D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeProcessing.DataAceess", "TradeProcessing.DataAceess\TradeProcessing.DataAceess.csproj", "{0DAF01E5-D1A7-44D3-853E-4722BA51C4D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.Processor", "TradeProcessing.Processor\TradeProcessing.Processor.csproj", "{F21FC485-C400-4AE4-9D95-C71913C6DA7A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeProcessing.Processor", "TradeProcessing.Processor\TradeProcessing.Processor.csproj", "{F21FC485-C400-4AE4-9D95-C71913C6DA7A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.Helpers", "TradeProcessing.Helpers\TradeProcessing.Helpers.csproj", "{43D1110E-E2C4-4C81-A624-B404338E5744}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TradeProcessing.Helpers", "TradeProcessing.Helpers\TradeProcessing.Helpers.csproj", "{43D1110E-E2C4-4C81-A624-B404338E5744}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TradeProcessing.Model", "TradeProcessing.Model\TradeProcessing.Model.csproj", "{CDBE1BE8-30DE-4F7A-931B-73E6F7A885F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,6 @@ Global
 		{0F7B990C-FD8D-41C5-A897-8E41D18E3B81}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F7B990C-FD8D-41C5-A897-8E41D18E3B81}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F7B990C-FD8D-41C5-A897-8E41D18E3B81}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E5B15BE1-D4C8-465B-AF1C-309096D3C763}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E5B15BE1-D4C8-465B-AF1C-309096D3C763}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E5B15BE1-D4C8-465B-AF1C-309096D3C763}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E5B15BE1-D4C8-465B-AF1C-309096D3C763}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0DAF01E5-D1A7-44D3-853E-4722BA51C4D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0DAF01E5-D1A7-44D3-853E-4722BA51C4D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0DAF01E5-D1A7-44D3-853E-4722BA51C4D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -39,6 +35,10 @@ Global
 		{43D1110E-E2C4-4C81-A624-B404338E5744}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{43D1110E-E2C4-4C81-A624-B404338E5744}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{43D1110E-E2C4-4C81-A624-B404338E5744}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CDBE1BE8-30DE-4F7A-931B-73E6F7A885F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CDBE1BE8-30DE-4F7A-931B-73E6F7A885F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CDBE1BE8-30DE-4F7A-931B-73E6F7A885F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CDBE1BE8-30DE-4F7A-931B-73E6F7A885F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

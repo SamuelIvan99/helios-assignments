@@ -7,5 +7,7 @@ namespace TradeProcessing.Processor.Interfaces
     public interface IEpexParser
     {
         IReadOnlyList<EpexRow> Parse(string csv, CultureInfo culture);
+
+        IReadOnlyList<EpexRowJao> ParseJao(string filePath, CultureInfo culture);
     }
 }

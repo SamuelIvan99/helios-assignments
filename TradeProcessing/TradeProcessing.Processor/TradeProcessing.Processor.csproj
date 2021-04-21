@@ -5,13 +5,16 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="ComTraderCsvProcessor.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Semicolon" Version="0.0.6" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\TradeProcessing.DataAceess\TradeProcessing.DataAceess.csproj" />
     <ProjectReference Include="..\TradeProcessing.Helpers\TradeProcessing.Helpers.csproj" />
-    <ProjectReference Include="..\TradeProcessing.Model\TradeProcessing.Model.csproj" />
   </ItemGroup>
 
 </Project>
