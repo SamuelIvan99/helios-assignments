@@ -5,6 +5,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="PositionsHelper.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\TradeProcessing.DataAceess\TradeProcessing.DataAceess.csproj" />
   </ItemGroup>
 

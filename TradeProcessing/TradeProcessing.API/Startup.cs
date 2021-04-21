@@ -22,8 +22,9 @@ namespace TradeProcessing.API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<IComTraderCsvProcessor, ComTraderCsvProcessor>();
+            //services.AddScoped<IComTraderCsvProcessor, ComTraderCsvProcessor>();
             services.AddScoped<IJAOCsvProcessor, JAOCsvProcessor>();
+            services.AddScoped<IEpexParser, EpexParser>();
             services.AddControllers();
 
             services.AddDbContext<HeliosContext>(options =>
