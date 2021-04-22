@@ -25,10 +25,11 @@ namespace TradeProcessing.API
             //services.AddScoped<IComTraderCsvProcessor, ComTraderCsvProcessor>();
             services.AddScoped<IJAOCsvProcessor, JAOCsvProcessor>();
             services.AddScoped<IEpexParser, EpexParser>();
-            services.AddControllers();
 
             services.AddDbContext<HeliosContext>(options =>
             options.UseSqlServer(Configuration.GetConnectionString("TradeContext")));
+
+            services.AddControllers();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
