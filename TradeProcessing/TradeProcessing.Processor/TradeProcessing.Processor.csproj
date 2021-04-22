@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Compile Remove="ComTraderCsvProcessor.cs" />
+    <Compile Remove="Interfaces\IComTraderCsvProcessor.cs" />
   </ItemGroup>
 
   <ItemGroup>
