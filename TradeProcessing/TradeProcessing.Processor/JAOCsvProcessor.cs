@@ -27,28 +27,7 @@ namespace TradeProcessing.Processor
 
                 if (trade == null)
                 {
-                    trade = new Trade
-                    {
-                        Act = row.Act,
-                        BG = row.BG,
-                        BuySell = row.BuySell,
-                        Contract = row.Contract,
-                        Currency = row.Currency,
-                        DateTime = row.DateTime,
-                        EIC = row.EIC,
-                        OrderNo = row.OrderNo,
-                        Price = row.Price,
-                        Product = row.Product,
-                        P_O = row.P_O,
-                        Quantity = row.Quantity,
-                        State = row.State,
-                        Text = row.Text,
-                        TradeNo = row.TradeNo,
-                        TraderId = row.TraderId,
-                        TSO = row.TSO
-                    };
-
-                    await _context.Trades.AddAsync(trade);
+                    await _context.Trades.AddAsync(row);
                 }
             }
 
