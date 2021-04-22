@@ -1,5 +1,4 @@
 ﻿using System.Globalization;
-using System.Linq;
 using System.Threading.Tasks;
 using TradeProcessing.DataAceess;
 using TradeProcessing.Model;
@@ -22,7 +21,7 @@ namespace TradeProcessing.Processor
         {
             var epexRowsJao = _parser.ParseJao(filePath, CultureInfo.GetCultureInfo("en-US"));
 
-            foreach (var row in epexRowsJao.OrderBy(r => r.TradeNo))
+            foreach (var row in epexRowsJao)
             {
                 Trade trade = _context.Trades.Find(row.TradeNo);
 
@@ -48,6 +47,7 @@ namespace TradeProcessing.Processor
                         TraderId = row.TraderId,
                         TSO = row.TSO
                     };
+
                     await _context.Trades.AddAsync(trade);
                 }
             }

@@ -11,6 +11,8 @@ namespace TradeProcessing.DataAceess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            base.OnModelCreating(modelBuilder);
+
             modelBuilder.Entity<Trade>().ToTable("Trade");
         }
     }
