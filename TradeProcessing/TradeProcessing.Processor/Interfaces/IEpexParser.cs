@@ -1,10 +1,11 @@
 ﻿using System.Collections.Generic;
 using System.Globalization;
+using TradeProcessing.Model;
 
 namespace TradeProcessing.Processor.Interfaces
 {
     public interface IEpexParser
     {
-        IReadOnlyList<EpexRowJao> ParseJao(string filePath, CultureInfo culture);
+        IReadOnlyList<Trade> ParseJao(string filePath, CultureInfo culture);
     }
 }
